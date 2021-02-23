@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <table class="table account-table">
+    <thead>
+      <tr>
+        <th [ngClass]="{'active' : (orderby == 'accountId')}"><a href="javascript:void(0);" [ngClass]="{'sortby-asce' :
+               (orderby == 'accountId' && !isDesc), 'sortby-desc' : (orderby == 'accountId' && isDesc)}"
+               (click)="sortby('accountId')">Account</a></th>
+        <th [ngClass]="{'active' : (orderby == 'cash')}"><a href="javascript:void(0);" [ngClass]="{'sortby-asce' :
+          (orderby == 'cash' && !isDesc), 'sortby-desc' : (orderby == 'cash' && isDesc)}"
+          (click)="sortby('cash')">Available Cash <span>Today's Change</span></a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accountData|slice:0:limit">
+        <td>{{account.name}}</td>
+        <td>
+          <div class="current-amt">{{account.cash | currency:'USD'}}</div>
+          <div class="percent-change" [ngClass]="{'positive':account.currentValue.percent > 0,
+                'negative':account.currentValue.percent < 0}">{{(account.currentValue.percent | positivepipe) + '% / ' }}
+                {{account.currentValue.amount | currency:'USD'}}</div>
+        </td>
+      </tr>
+      <tr *ngIf="limit<totalCollCount">
+          <td colspan="2"><a href="#" class="btn btn-default" (click)="loadMore()">Load more</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,13 +1,26 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PositivePipe } from './shared/pipes/positive.pipe';
+
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+    PositivePipe
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

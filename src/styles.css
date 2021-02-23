@@ -1,1 +1,35 @@
-/* Add application styles & imports to this file! */
+/* You can add global styles to this file, and also import other style files */
+
+html,body {
+    margin:0;
+    padding:0;
+    height:100%; /* needed for container min-height */
+    background:#1E79B4;
+    font-family:arial,sans-serif;
+    font-size:small;
+    color:#333;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fadeIn {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 100%;
+        opacity: 1;
+    }
+}
+
+/* Standard syntax */
+@keyframes fadeIn {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 100%;
+        opacity: 1;
+    }
+}
