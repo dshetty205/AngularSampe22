@@ -1,4 +1,6 @@
 import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+
 import { Routes, RouterModule } from "@angular/router";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
@@ -9,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { initialNavigation: "enabled" })],
+  imports: [RouterModule.forRoot(routes), BrowserModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
